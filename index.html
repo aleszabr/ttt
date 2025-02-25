@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Million Dollar Homepage - Kopie</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-box h3 {
+            margin: 0;
+            color: #666;
+        }
+
+        .stat-box p {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            margin: 5px 0;
+        }
+
+        .grid-container {
+            width: 1000px;
+            height: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(100, 10px);
+            grid-template-rows: repeat(100, 10px);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .controls {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            justify-content: center;
+        }
+
+        .mode-button {
+            padding: 10px 20px;
+            background-color: #666;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .mode-button.active {
+            background-color: #4CAF50;
+        }
+
+        .selection-info {
+            text-align: center;
+            margin: 10px 0;
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .pixel {
+            width: 10px;
+            height: 10px;
+            background-color: #eee;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .pixel:hover {
+            background-color: #ddd;
+        }
+
+        .purchase-form {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .purchase-form h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Million Dollar Homepage - Kopie</h1>
+            <p>Kupte si kousek internetové historie! 1 pixel = $1</p>
+        </header>
+
+        <div class="stats">
+            <div class="stat-box">
+                <h3>Prodáno pixelů</h3>
+                <p id="pixels-sold">0 / 1,000,000</p>
+            </div>
+            <div class="stat-box">
+                <h3>Vyděláno</h3>
+                <p id="money-earned">$0</p>
+            </div>
+            <div class="stat-box">
+                <h3>Zbývající pixely</h3>
+                <p id="pixels-remaining">1,000,000</p>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="mode-button active" id="select-mode">Vybrat pixely</button>
+            <button class="mode-button" id="clear-mode">Vymazat výběr</button>
+        </div>
+
+        <div class="selection-info">
+            <p>Vybráno: <span id="selected-count">0</span> pixelů ($<span id="selected-price">0</span>)</p>
+        </div>
+
+        <div class="grid-container" id="pixel-grid">
+            <img id="background-image" class="background-image" style="display: none;">
+        </div>
+
+        <div class="purchase-form">
+            <h2>Koupit vybrané pixely</h2>
+            <form id="ad-form">
+                <div class="form-group">
+                    <label for="url">URL adresa po kliknutí:</label>
+                    <input type="url" id="url" required>
+                </div>
+                <div class="form-group">
+                    <label for="image">Obrázek pro zobrazení (doporučeno 1000x1000px):</label>
+                    <input type="file" id="image" accept="image/*" required>
+                </div>
+                <button type="submit">Koupit vybrané pixely</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
